@@ -8,3 +8,17 @@ grep "main()" . -r --include *.{php,html}
  #在搜索结果中排除filelist文件列表里的文件 
  grep "main()" . -r --exclude-from filelist
 
+################################
+#                              #
+OOO="abcde"
+EEE="fghj"
+
+#lenO=`expr length $OOO`
+#lenE=`expr length $EEE`
+#if [ $lenO -gt $lenE ]
+if [ ${#OOO} -gt ${#EEE} ]
+then
+	echo "GREATER"
+fi
+#                              #
+################################
