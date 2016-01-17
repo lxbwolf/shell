@@ -1,0 +1,26 @@
+All words:
+( ?[a-zA-Z]+ ?)
+
+Email address:
+[a-z0-9_]+@[a-z0-9]+\.[a-z]+
+
+Ip address:
+[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}
+or
+[[:digit:]]{1,3}\.[[:digit:]]{1,3}\.[[:digit:]]{1,3}\.[[:digit:]]{1,3}
+#Code above only match ip addresses, but never check whether it is illegal.
+
+Expression symbols
+^
+$
+.
+[]
+[^]
+[a-z][0-9]
+?
++
+*
+()
+{n} {n,} {n,m}
+|
+\
