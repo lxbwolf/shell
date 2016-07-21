@@ -1,0 +1,19 @@
+[user]
+        email = lxb234@qq.com
+        name = liuxiaobin
+[alias]
+        bl = blame -L
+        br = branch
+        ci = commit
+        cid = commit --amend
+        co = checkout
+        di = diff
+        ignore = update-index --assume-unchanged
+        last = log -1
+        logg = log --graph
+        ls = ls-files -v
+        mg = merge
+        shows = show --stat
+        st = status
+        unstage = reset HEAD --
+        unignore = update-index --no-assume-unchanged
