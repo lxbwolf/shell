@@ -17,3 +17,9 @@
         st = status
         unstage = reset HEAD --
         unignore = update-index --no-assume-unchanged
+[color]
+        ui = true
+        diff = auto
+        status = auto
+        branch = auto
+        interactive = true
