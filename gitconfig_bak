@@ -1,6 +1,3 @@
-[user]
-        email = 
-        name = 
 [alias]
         bl = blame -L
         br = branch -v
@@ -8,6 +5,7 @@
         cid = commit --amend
         co = checkout
         di = diff
+        dt = difftool -y
         ignore = update-index --assume-unchanged
         last = log -1
         logg = log --graph
@@ -23,3 +21,9 @@
         status = auto
         branch = auto
         interactive = true
+[diff]
+        tool = mymeld.sh
+[merge]
+        tool = mymeld.sh
+[core]
+        editor = vim
