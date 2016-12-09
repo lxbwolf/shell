@@ -1,0 +1,24 @@
+sed -i "s/oldstring/newstring/g" `grep oldstring -rl yourdir`
+find . -type f
+cat checklist | awk -F, '{ print $1 }'
+#只在目录中所有的.php和.html文件中递归搜索字符"main()" 
+grep "main()" . -r --include *.{php,html} 
+#在搜索结果中排除所有README文件
+ grep "main()" . -r --exclude "README" 
+ #在搜索结果中排除filelist文件列表里的文件 
+ grep "main()" . -r --exclude-from filelist
+
+################################
+#                              #
+OOO="abcde"
+EEE="fghj"
+
+#lenO=`expr length $OOO`
+#lenE=`expr length $EEE`
+#if [ $lenO -gt $lenE ]
+if [ ${#OOO} -gt ${#EEE} ]
+then
+	echo "GREATER"
+fi
+#                              #
+################################

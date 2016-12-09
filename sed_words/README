@@ -1,0 +1,4 @@
+It's a bash shell script.
+The prupose is replacing words in all files under the project after finding out which file contains the word to be replaced.
+For example, there are some "fail"s in some files, meanwhile "failure"s in some other files. They are all in the same project. People will
+never like something like that. Because it looks lack of standardization. It is required to unify them. Therefore, the script is born.
