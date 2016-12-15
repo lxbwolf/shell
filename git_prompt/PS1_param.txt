@@ -1,0 +1,23 @@
+\a The 'bell' character （“铃声”符号）
+\A 24h Time （24小时制时间）
+\d Date (e.g. Tue Dec 21) （日期）
+\e The 'escape' charakter （“Esc”符号）
+\h Hostname (up to the first ".") （主机名称，写到第一个“.”）
+\H Hostname （主机名称）
+\j No. of jobs currently running (ps) （目前正在跑的进程的数目）
+\l Current tty （当前的tty）
+\n Line feed （换行符）
+\t Time (hh:mm:ss) （时间格式）
+\T Time (hh:mm:ss, 12h format) （时间，12小时格式）
+\r Carriage return （回车符）
+\s Shell (i.e. bash, zsh, ksh..)
+\u Username （用户名称）
+\v Bash version （Bash版本）
+\V Full Bash release string （完整的Bash发行号）
+\w Current working directory （当前工作目录）
+\W Last part of the current working directory （当前工作目录的最后一部分）
+\! Current index in history （以往的当前下标）
+\# Command index （命令行下标）
+\$ A "#" if you're root, else "$" （root身份登陆的时候是“#”，其他身份登陆都是“$”）
+\\ Literal Backslash （取字面意思的反斜杠）
+\@ Time (12h format with am/pm) （时间，用am/pm的12小时制）
