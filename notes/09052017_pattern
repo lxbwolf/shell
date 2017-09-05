@@ -1,0 +1,78 @@
+? 表示任意一个字符.
+* 表示任意长度的任意字符, 包括空字符. 在bash 4.0以上版本, 如果环境开启了globstar设置, 在两个连续的**可以用来递归匹配某目录下的所有文件名.
+例, 某目录结构如下
+$ tree test/
+test/
+├── 1
+├── 2
+├── 3
+├── 4
+├── a
+│   ├── 1
+│   ├── 2
+│   ├── 3
+│   └── 4
+├── a.conf
+├── b
+│   ├── 1
+│   ├── 2
+│   ├── 3
+│   └── 4
+├── b.conf
+├── c
+│   ├── 5
+│   ├── 6
+│   ├── 7
+│   └── 8
+└── d
+    ├── 1.conf
+    └── 2.conf
+
+4 directories, 20 files
+
+使用通配符进行文件名匹配：
+$ echo test/*
+test/1 test/2 test/3 test/4 test/a test/a.conf test/b test/b.conf test/c test/d
+$ echo test/*.conf
+test/a.conf test/b.conf
+
+查看当前globstar状态：
+$ shopt globstar
+globstar           off
+
+打开globstar：
+$ shopt -s globstar
+$ shopt globstar
+globstar           on
+
+使用**匹配：
+$ echo test/**
+test/ test/1 test/2 test/3 test/4 test/a test/a/1 test/a/2 test/a/3 test/a/4 test/a.conf test/b test/b/1 test/b/2 test/b/3 test/b/4 test/b.conf test/c test/c/5 test/c/6 test/c/7 test/c/8 test/d test/d/1.conf test/d/2.conf
+$ echo test/**/*.conf
+test/a.conf test/b.conf test/d/1.conf test/d/2.conf
+
+关闭globstart并再次测试**：
+$ shopt -u globstar
+$ shopt  globstar
+globstar           off
+
+$ echo test/**/*.conf
+test/d/1.conf test/d/2.conf
+$ echo test/**
+test/1 test/2 test/3 test/4 test/a test/a.conf test/b test/b.conf test/c test/d
+
+[abc] 表示这个范围的任意一个字符, 也可以写成[a-c]. 
+测试刚才的test目录,
+$ ls test/[123]
+test/1  test/2  test/3
+$ ls test/[abc]
+test/a:
+1  2  3  4
+
+test/b:
+1  2  3  4
+
+test/c:
+5  6  7  8
+
+bash最常见的通配符即上面的三个, 他们跟正则表达式没有关系, 不能搞混
