@@ -1,0 +1,52 @@
+1 请对比如下两个测试：
+
+$ for i in `ls /etc`;do echo $i;done
+adjtime
+adobe
+appstream.conf
+arch-release
+asound.conf
+avahi
+bash.bash_logout
+bash.bashrc
+bind.keys
+binfmt.d
+......
+
+$ for i in /etc/*;do echo $i;done
+/etc/adjtime
+/etc/adobe
+/etc/appstream.conf
+/etc/arch-release
+/etc/asound.conf
+/etc/avahi
+/etc/bash.bash_logout
+/etc/bash.bashrc
+/etc/bind.keys
+/etc/binfmt.d
+......
+
+像ls这样的命令很多时候是设计给人用的，它的很多显示是有特殊设定的，可能并不是纯文本。
+比如可能包含一些格式化字符，也可能包含可以让终端显示出颜色的标记字符等等。
+当我们在程序里面使用类似这样的命令的时候要格外小心，说不定什么时候在什么不同环境配置的系统上，
+你的程序就会有意想不到的异常出现，到时候排查起来非常麻烦。
+所以这里我们应该尽量避免使用ls这样的命令来做类似的行为，用通配符可能更好。
+
+当然，如果你要操作的是多层目录文件的话，那么ls就更不能帮你的忙了，它遇到目录之后显示成这样：
+$ ls /etc/*
+/etc/adobe:
+mms.cfg
+
+/etc/avahi:
+avahi-autoipd.action  avahi-daemon.conf  avahi-dnsconfd.action  hosts  services
+
+/etc/binfmt.d:
+
+/etc/bluetooth:
+main.conf
+
+/etc/ca-certificates:
+extracted  trust-source
+所以遍历一个目录还是要用两个连续的**，如果不是bash 4.0之后的版本的话，可以使用find。
+我推荐用find，因为它更通用。
+有时候你会发现，使用find之后，绝大多数原来需要写脚本解决的问题可能都用不着了，一个find命令解决很多问题
